@@ -1,0 +1,108 @@
+
+
+
+<Screen_B>:
+
+    on_enter:
+        root.screen_B_in_last_entered_screen_json_file()
+
+    on_pre_leave:
+        root.screen_A_in_last_entered_screen_json_file()
+
+
+
+
+#---------TOP OF SCREEN (BACK ARROW, BUDGET NAME, BURGER MENU)----------
+
+
+
+    BoxLayout:
+
+        orientation: "vertical"
+
+        size_hint: (1, .1)
+        pos_hint: {"center_x": .5, "top": 1}
+
+
+        RelativeLayout:
+
+            ImageButton:
+
+                source: "images_icons_and_videos/back_arrow.png"
+                size_hint: (.05, .85)
+                pos_hint: {"x": .08, "top": 1}
+
+                on_release:
+                    app.root.current = "screen_A"
+                    root.manager.transition.direction = "right"
+
+
+            Label:
+                id: budget_name
+
+                text: ""
+
+                color: (0, 0, 0, 1)
+                size_hint: (.60, .85)
+                pos_hint: {"x": .2, "top": 1}
+
+
+
+            ImageButton:
+                source: "images_icons_and_videos/burger_menu_ScreenShot.png"
+
+                size_hint: (.05, .85)
+                pos_hint: {"x": .87, "top": 1}
+
+                on_release:
+                    root.burger_menu_open()
+
+
+
+
+
+
+
+
+#---------CONTENT OF SCREEN B------------
+
+
+
+    RelativeLayout:
+
+        Button:
+            text: "(i)"
+
+            size_hint: (.02, .02)
+            pos_hint: {"x": .75, "top": .83}
+
+
+        Button:
+            text: "One Time Income"
+
+            font_size: 14
+            size_hint: (.8, .2)
+            pos_hint: {"center_x": .5, "top": .8}
+
+            on_release:
+                app.root.current = "screen_C"
+                root.manager.transition.direction = "left"
+
+
+        Button:
+            text: "(i)"
+
+            size_hint: (.02, .02)
+            pos_hint: {"x": .75, "top": .43}
+
+
+
+        Button:
+            text: "Repeating Income"
+
+            font_size: 14
+            size_hint: (.8, .2)
+            pos_hint: {"center_x": .5, "top": .4}
+
+            on_release:
+                app.root.current = "screen_G"

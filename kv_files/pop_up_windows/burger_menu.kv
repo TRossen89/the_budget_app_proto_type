@@ -1,0 +1,124 @@
+
+<burger_menu_pop_up>:
+
+    title: "Menu"
+    title_size: "12"
+
+    title_align: "center"
+    size_hint: (.5, .5)
+    pos_hint: {"x":.4, "top": .9}
+    title_color: (0, 0, 0, 1)
+    separator_color: (0, 0, 0, 1)
+    separator_height: "1dp"
+    padding: 0
+    background: "images_icons_and_videos/burger_menu_BACKGROUND.png"
+
+
+### """ ###
+#
+# RelativeLayout i stedet måske?
+
+
+    FloatLayout:
+        #orientation: "vertical"
+
+        background_color: (1, 1, 1, 1)
+
+
+        Button:
+
+            text: "Create Budget"
+
+            font_size: 12
+            color: (0, 0, 0, 1)
+            size_hint: (1, .14)
+            background_color: (1, 1, 1, 0)
+            pos_hint: {'center_x': .5, "top": 1}
+
+            on_release:
+                app.root.current = "screen_B"
+                root.dismiss()
+
+
+
+        Button:
+
+            text: "Your Budgets"
+
+            font_size: 12
+            color: (0, 0, 0, 1)
+            size_hint: (1, .14)
+            background_color: (1, 1, 1, 0)
+            pos_hint: {'center_x': .5, "top": .86}
+
+            on_release:
+                app.root.current = "screen_H"
+                root.dismiss()
+
+
+        Button:
+
+            text: "Advices"
+
+            font_size: 12
+            color: (0, 0, 0, 1)
+            size_hint: (1, .14)
+            background_color: (1, 1, 1, 0)
+            pos_hint: {'center_x': .5, "top": .72}
+
+            on_release:
+                root.dismiss()
+
+
+        Button:
+
+            text: "Why Make A Budget?"
+
+            font_size: 12
+            color: (0, 0, 0, 1)
+            size_hint: (1, .14)
+            background_color: (1, 1, 1, 0)
+            pos_hint: {'center_x': .5, "top": .58}
+
+
+        Button:
+
+            text: "How To Make Money"
+
+            font_size: 12
+            color: (0, 0, 0, 1)
+            size_hint: (1, .14)
+            background_color: (1, 1, 1, 0)
+            pos_hint: {'center_x': .5, "top": .44}
+
+            on_release:
+                root.dismiss()
+
+
+        Button:
+
+            text: "Learn The App"
+
+            font_size: 12
+            color: (0, 0, 0, 1)
+            size_hint: (1, .14)
+            background_color: (1, 1, 1, 0)
+            pos_hint: {'center_x': .5, "top": .3}
+
+            on_release:
+                root.dismiss()
+
+
+
+        Button:
+
+            text: "Settings"
+
+            font_size: 12
+            color: (0, 0, 0, 1)
+            size_hint: (1, .14)
+            background_color: (1, 1, 1, 0)
+            pos_hint: {'center_x': .5, "top": .16}
+
+            on_release:
+                root.dismiss()

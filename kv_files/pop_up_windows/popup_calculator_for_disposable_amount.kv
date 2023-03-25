@@ -1,0 +1,498 @@
+<new_calculator>:
+
+
+    ImageButton:
+        source: "images_icons_and_videos/pil_op.png"
+        size_hint: (.15, .15)
+        pos_hint: {"x": 0, "top": .9}
+
+        on_release:
+            root.function_of_arrow_up_multiply()
+
+
+    TextInput:
+        id: new_calculator_description
+
+        text: "Description"
+        multiline: False
+
+        font_size: 12
+
+        size_hint: (.5, .15)
+        pos_hint: {"x": .25, "top": .9}
+
+
+    ImageButton:
+
+        source: "images_icons_and_videos/pil_op.png"
+
+        size_hint: (.15, .15)
+        pos_hint: {"x": .85, "top": .9}
+
+
+        on_release:
+            root.function_of_arrow_up_divide()
+
+
+#Row_2________________________________________________________
+
+    TextInput:
+        id: new_calculator_multiply
+
+        text: "1"
+
+        multiline: False
+
+
+#!!!!!!!!!!!!!!!!!!!!!!!!iiiiiiiiiiiii!!!!!!!!!!!!!!!!!!!!!!iiiiiiiiiiiiiiiiiii!!!!!!!!!!!!!!!!!!
+
+        input_filter: "float"
+
+        font_size: 14
+        halign: 'center'
+
+        size_hint: (.15, .15)
+        pos_hint: {"x": 0, "top": .75}
+
+
+
+    ImageButton:
+        source: "images_icons_and_videos/gange_med_1.png."
+        size_hint: (.1, .15)
+        pos_hint: {"x": .15, "top": .75}
+
+
+
+    TextInput:
+        id: new_calculator_amount
+
+        text: "Amount"
+
+        multiline: False
+        nput_filter: "float"
+        font_size: 20
+
+        halign: 'left'
+
+        size_hint: (.5, .15)
+        pos_hint: {"x": .25, "top": .75}
+
+
+
+    ImageButton:
+        source: "images_icons_and_videos/divideret_med_1.png"
+
+        size_hint: (.1, .15)
+        pos_hint: {"x": .75, "top": .75}
+
+
+
+    TextInput:
+        id: new_calculator_divide
+
+        text: "1"
+
+        multiline: False
+
+        font_size: 14
+        halign: 'center'
+
+        size_hint: (.15, .15)
+        pos_hint: {"x": .85, "top": .75}
+
+
+#Row_3________________________________________________________
+
+    ImageButton:
+
+        source: "images_icons_and_videos/pil_ned.png"
+        size_hint: (.15, .15)
+        pos_hint: {"x": 0, "top": .6}
+
+        on_release:
+            root.function_of_arrow_down_multiply()
+
+
+    Button:
+        text: "="
+
+        size_hint: (.5, .1)
+        pos_hint: {"x": .25, "top": .575}
+
+        on_release:
+            root.new_calculator_equals_to()
+
+
+    ImageButton:
+
+        source: "images_icons_and_videos/pil_ned.png"
+
+        size_hint: (.15, .15)
+        pos_hint: {"x": .85, "top": .6}
+
+        on_release:
+            root.function_of_arrow_down_multiply()
+
+
+#Row_4________________________________________________________
+
+
+    Button:
+        text: "+ Add\n to total"
+
+        font_size: 12
+
+        size_hint: (.24, .15)
+        pos_hint: {"x": .25, "top": .45}
+
+
+        on_release:
+            root.new_calculator_add_to_total()
+
+
+    Button:
+        text: "- Subtract\n from total"
+
+        font_size: 12
+        size_hint: (.24, .15)
+        pos_hint: {"x": .51, "top": .45}
+
+        on_release:
+            root.new_calculator_subtract_from_total()
+
+
+
+
+
+
+
+
+<popup_calculator_for_disposable_amount>:
+
+
+    id: calculator_for_disposable_amount
+
+    title: "Calculator"
+    title_size: "12"
+
+    title_align: "center"
+    size_hint: (.9, .9)
+    pos_hint: {"center_x":.5}
+    title_color: (0, 0, 0, 1)
+    separator_color: (1, 1, 1, 1)
+    separator_height: "1dp"
+    padding: 0
+    background: "images_icons_and_videos/burger_menu_BACKGROUND.png"
+
+
+
+    ScrollView:
+
+        id: calculator_scroll_view
+
+        size_hint_y: 1
+        pos_hint: {"x": 0}
+        do_scroll_x: False
+        do_scroll_y: True
+        bar_width: 0
+
+        GridLayout:
+            id: grid_frame_in_scroll_view
+
+            size: root.width-23, root.height
+
+            cols: 1
+            padding: 10
+            spacing: 5
+            row_default_height: 25000
+            row_force_default: True
+
+            size_hint_x: None
+            size_hint_y: root.size_hint_y_main_grid
+
+            height: self.minimum_height
+
+
+            RelativeLayout:
+
+                GridLayout:
+                    id: grid_with_calculator
+                    cols: 1
+                    row_default_height: 250
+                    row_force_default: True
+                    pos_hint: {"center_x": .5, "top": 1}
+
+
+                    RelativeLayout:
+
+                        Button:
+                            text: "Learn the calculator"
+                            size_hint: (.6, .25)
+                            pos_hint: {"center_x": .5, "top": .8}
+
+
+
+                    RelativeLayout:
+                        id: root.calculator_layout_id
+                        spacing: 0
+
+
+                    #Row_1________________________________________________________
+
+                        ImageButton:
+
+                            source: "images_icons_and_videos/pil_op.png"
+
+                            size_hint: (.15, .15)
+                            pos_hint: {"x": 0, "top": .9}
+
+                            on_release:
+                                root.function_of_arrow_up_multiply()
+
+
+                        TextInput:
+                            id: description
+
+                            text: "Description"
+
+                            multiline: False
+
+                            font_size: 12
+                            size_hint: (.5, .15)
+
+                            pos_hint: {"x": .25, "top": .9}
+
+
+                        ImageButton:
+
+                            source: "images_icons_and_videos/pil_op.png"
+
+                            size_hint: (.15, .15)
+                            pos_hint: {"x": .85, "top": .9}
+
+                            on_release:
+                                root.function_of_arrow_up_divide()
+
+                    #Row_2________________________________________________________
+
+                        TextInput:
+                            id: multiply
+
+                            text: "1"
+
+                            multiline: False
+                            input_filter: "float"
+
+                            font_size: 14
+                            halign: 'center'
+
+                            size_hint: (.15, .15)
+                            pos_hint: {"x": 0, "top": .75}
+
+
+
+
+
+                        ImageButton:
+
+                            source: "images_icons_and_videos/gange_med_1.png."
+
+                            size_hint: (.1, .15)
+                            pos_hint: {"x": .15, "top": .75}
+
+
+                        TextInput:
+                            id: amount
+
+                            text: "Amount"
+
+                            multiline: False
+                            input_filter: "float"
+
+                            font_size: 20
+                            halign: 'left'
+
+                            size_hint: (.5, .15)
+                            pos_hint: {"x": .25, "top": .75}
+
+
+
+                        ImageButton:
+
+                            source: "images_icons_and_videos/divideret_med_1.png"
+
+                            size_hint: (.1, .15)
+                            pos_hint: {"x": .75, "top": .75}
+
+
+
+                        TextInput:
+                            id: divide
+
+                            text: "1"
+
+                            multiline: False
+
+                            font_size: 14
+                            halign: 'center'
+
+                            size_hint: (.15, .15)
+                            pos_hint: {"x": .85, "top": .75}
+
+
+
+
+                    #Row_3________________________________________________________
+
+                        ImageButton:
+
+                            source: "images_icons_and_videos/pil_ned.png"
+
+                            size_hint: (.15, .15)
+                            pos_hint: {"x": 0, "top": .6}
+
+                            on_release:
+                                root.function_of_arrow_down_multiply()
+
+
+                        Button:
+                            text: "="
+
+                            size_hint: (.5, .1)
+                            pos_hint: {"x": .25, "top": .575}
+
+                            on_release:
+                                root.equals_to()
+
+
+                        ImageButton:
+
+                            source: "images_icons_and_videos/pil_ned.png"
+
+                            size_hint: (.15, .15)
+                            pos_hint: {"x": .85, "top": .6}
+
+                            on_release:
+                                root.function_of_arrow_down_divide()
+
+
+                    #Row_4________________________________________________________
+
+
+                        Button:
+                            text: "+ Add\n to total"
+
+                            font_size: 12
+
+                            size_hint: (.24, .15)
+                            pos_hint: {"x": .25, "top": .45}
+
+
+                            on_release:
+                                root.add_to_total()
+
+
+                        Button:
+                            text: "- Subtract\n from total"
+
+                            font_size: 12
+                            size_hint: (.24, .15)
+                            pos_hint: {"x": .51, "top": .45}
+
+                            on_release:
+                                root.subtract_from_total()
+
+
+
+
+
+                GridLayout:
+                    id: add_calc_grid_id
+                    cols: 1
+                    pos_hint: {"center_x": .5, "top": root.top_hint_add_calc_btn}
+                    row_default_height: 250
+                    row_force_default: True
+
+                    RelativeLayout:
+
+                        Button:
+                            text: "Add calculator"
+                            pos_hint: {"center_x": .5, "top": 1}
+                            size_hint: (1, 1)
+                            on_release:
+                                root.add_calculator()
+                                add_calc_grid_id.pos_hint = {"center_x": .5, "top": root.top_hint_add_calc_btn}
+
+
+
+                GridLayout:
+
+                    row_default_height: 250
+                    row_force_default: True
+                    cols: 1
+                    pos_hint: {"center_x": .5, "top": root.top_hint_total_txt_input}
+
+
+                    RelativeLayout:
+                        id: total_to_disp_amount_re_layout
+
+
+                        Label:
+                            text: "Total:"
+
+                            color: (0, 0, 0, 1)
+                            font_size: 12
+                            size_hint: (.5, .1)
+
+                            pos_hint: {"center_x": .5, "top": .8}
+
+
+                        TextInput:
+                            id: total_to_disposable_amount
+
+                            text: "0"
+
+                            size_hint: (.8, .2)
+                            pos_hint: {"center_x": .5, "top": .7}
+
+                        Button:
+                            text: "Add to disposable\namount"
+
+                            font_size: 10
+                            halign: "center"
+
+                            size_hint: (.4, .2)
+                            pos_hint: {"center_x": .3, "top": .5}
+
+                            on_release:
+                                root.add_calc_amount_to_disp_amount()
+
+                        Button:
+                            text: "Enter as disposable\namount"
+
+                            font_size: 10
+                            halign: "center"
+                            size_hint: (.4, .2)
+                            pos_hint: {"center_x": .7, "top": .5}
+                            on_release:
+                                root.enter_as_disp_amount()
+
+                        Button:
+                            text: "Close"
+                            font_size: 12
+                            size_hint: (.4, .2)
+                            pos_hint: {"center_x": .5, "top": .3}
+                            on_release:
+                                root.close_calc_popup()
+
+
+
+
+
+                GridLayout:
+                    id: data_view_grid
+
+                    row_default_height: 100
+                    row_force_default: True
+                    cols: 1
+                    pos_hint: {"center_x": .5, "top": root.top_hint_view_calculations}

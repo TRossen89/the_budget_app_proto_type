@@ -1,0 +1,199 @@
+### """ ###
+#
+# I en fil for sig?
+
+
+<eb_budgets>:
+
+
+    Label:
+        id: label_BUDGET_NAME
+        text: ""
+        color: (0, 0, 0, 1)
+
+        text_size: self.size
+        halign: "left"
+        valign: "center"
+
+        font_size: 16
+
+        size_hint: (.6, .9)
+        pos_hint: {"x": .05, "top": 1}
+
+
+    Button:
+        id: button_SEE_BUDGET
+
+        text: "See budget"
+
+        size_hint: (.24, .9)
+        pos_hint: {"x": .65, "top": 1}
+
+        on_release:
+            root.function_SEE_BUDGET()
+            app.root.current = "screen_J"
+
+
+
+    Button:
+        id: button_DELETE_BUDGET
+
+        text: "X"
+
+        background_color: (.7, 0, 0, 1)
+
+        size_hint: (.08, .9)
+        pos_hint: {"x": .91, "top": 1}
+
+        on_release:
+            root.function_DELETING_BUDGET()
+
+
+#####################################################################################################################
+#####################################################################################################################
+
+
+<Screen_I>:
+
+
+    on_enter:
+        root.on_enter_LIST_OF_BUDGETS_after_CHANGED_BUDGET_NAME()
+        root.screen_I_in_last_entered_screen_json_file()
+
+    on_pre_leave:
+        root.screen_A_in_last_entered_screen_json_file()
+
+
+
+
+
+
+# TOP OF SCREEN (BACK ARROW, BUDGET NAME, BURGER MENU) ########################################################
+
+
+    BoxLayout:
+
+        orientation: "vertical"
+
+        size_hint: (1, .1)
+        pos_hint: {"center_x": .5, "top": 1}
+
+
+        RelativeLayout:
+
+
+
+#---#---#-- BACK ARROW ------------------------------------------------------------------------------------------
+
+
+            ImageButton:
+
+                source: "images_icons_and_videos/back_arrow.png"
+                size_hint: (.05, .85)
+                pos_hint: {"x": .08, "top": 1}
+
+                on_release:
+                    app.root.current = "screen_H"
+                    #root.manager.transition.direction = "right"
+
+
+
+
+#---#---#-- BUDGET NAME ------------------------------------------------------------------------------------------
+
+
+            Label:
+                id: budget_name
+
+                text: ""
+
+                color: (0, 0, 0, 1)
+                size_hint: (.60, .85)
+                pos_hint: {"x": .2, "top": 1}
+
+
+
+
+#   #   #   BURGER MENU ------------------------------------------------------------------------------------------
+
+            ImageButton:
+                source: "images_icons_and_videos/burger_menu_ScreenShot.png"
+
+                size_hint: (.05, .85)
+                pos_hint: {"x": .87, "top": 1}
+
+                on_release:
+                    root.burger_menu_open()
+
+
+
+
+
+# CONTENT OF SCREEN I ##########################################################################################
+
+
+
+    ScrollView:
+
+        id: expenses_scroll_view
+
+        size_hint_y: .9
+        pos_hint: {"x": 0}
+
+        do_scroll_x: False
+        do_scroll_y: True
+        bar_width: 0
+
+        GridLayout:
+            id: expenses_main_grid_frame
+
+            cols: 1
+
+            size: root.width, root.height
+
+            padding: 10
+
+            row_default_height: 100000
+            row_force_default: True
+
+            size_hint_x: None
+            size_hint_y: root.size_hint_y_of_expenses_main_grid_frame
+
+
+            height: self.minimum_height
+
+
+
+            RelativeLayout:
+
+                GridLayout:
+                    id: grid_frame_for_headline_of_screen
+                    cols: 1
+                    row_default_height: 100
+                    row_force_default: True
+                    pos_hint: {"center_x": .5, "top": 1}
+
+
+                    Label:
+                        text: "Your One Time Income budgets"
+
+                        font_size: 20
+                        color: (0, 0, 0, 1)
+
+                        size_hint: (.6, .2)
+                        pos_hint: {"center_x": .5, "top": .9}
+
+
+
+
+                GridLayout:
+
+                    id: grid_frame_for_all_eb_budgets
+                    cols: 1
+                    row_default_height: 50
+                    row_force_default: True
+
+                    pos_hint: {"center_x": .5, "top": .999}
+
+
+

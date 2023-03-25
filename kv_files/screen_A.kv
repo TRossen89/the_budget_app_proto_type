@@ -1,0 +1,70 @@
+<Screen_A>:
+
+
+
+    BoxLayout:
+
+
+        BoxLayout:
+            size: root.width, root.height
+            orientation: "vertical"
+
+            padding: 50
+            spacing: 20
+
+
+
+
+            Button:
+
+                text: "Create Budget"
+
+                font_size: 20
+
+                on_release:
+                    app.root.current = "screen_B"
+                    #root.manager.transition.direction = "left"
+
+
+
+
+            Button:
+
+                text: "Your Budgets"
+
+                font_size: 20
+
+                on_release:
+                    app.root.current = "screen_H"
+                    #root.manager.transition.direction = "left"
+
+
+            Button:
+                text: "Advices"
+                font_size: 20
+                #on_release:
+                 #   app.root.current = "advices"
+
+
+            Button:
+                text: "Why Make A Budget?"
+                font_size: 20
+                on_release:
+
+
+            Button:
+                text: "How To Make Money"
+                font_size: 20
+                on_release:
+
+
+            Button:
+                text: "Learn The App"
+                font_size: 20
+                on_release:
+
+
+            Button:
+                text: "Settings"
+                font_size: 20
+                on_release:

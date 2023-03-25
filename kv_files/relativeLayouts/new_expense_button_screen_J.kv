@@ -1,0 +1,353 @@
+<new_expense_POP_UP_screen_J>:
+
+    title: "New expense"
+    title_size: "12"
+
+    title_align: "center"
+    size_hint: (.95, .6)
+    pos_hint: {"center_x": .5, "center_y": .5}
+    title_color: (0, 0, 0, 1)
+    separator_color: (1, 1, 1, 1)
+    separator_height: "1dp"
+    padding: 0
+    background: "images_icons_and_videos/burger_menu_BACKGROUND.png"
+
+
+    RelativeLayout:
+
+        background_color: (1, 1, 1, 1)
+
+
+
+
+    #________________________ARROWS UP_____________________________________________________
+
+        ImageButton:
+            id: arrow_UP_MULTIPLY
+
+            source: "images_icons_and_videos/pil_op.png"
+
+            size_hint: (.12, .11)
+            pos_hint: {"x": .0, "top": .93}
+
+
+
+            on_release:
+                root.function_of_arrow_UP_MULTIPLY()
+
+
+
+        ImageButton:
+            id: arrow_UP_DIVIDE
+
+            source: "images_icons_and_videos/pil_op.png"
+
+            size_hint: (.12, .11)
+            pos_hint: {"x": .88, "top": .93}
+
+
+
+            on_release:
+                root.function_of_arrow_UP_DIVIDE()
+
+
+
+
+    #_____________________________________TXT_INPUT: 1___________________________1________________________________
+
+        TextInput:
+
+            id: text_input_MULTIPLY
+
+            text: "1"
+
+            multiline: False
+            input_filter: "float"
+
+            font_size: 12
+            halign: 'center'
+
+
+            size_hint: (.12, .11)
+            pos_hint: {"x": .0, "center_y": .75}
+
+
+
+            on_text:
+                root.on_text_if_nothing_then_0_in_MULTIPLY_text_input()
+                root.function_CALCULATING_TOTAL_AMOUNT_when_on_text_MULTIPLY()
+
+
+
+
+        TextInput:
+            id: text_input_DIVIDE
+
+            text: "1"
+
+            multiline: False
+            input_filter: "float"
+
+            font_size: 12
+            halign: 'center'
+
+
+
+            size_hint: (.12, .11)
+            pos_hint: {"x": .88, "center_y": .75}
+
+
+            on_text:
+                root.on_text_if_nothing_then_0_in_DIVIDE_text_input()
+                root.function_CALCULATING_TOTAL_AMOUNT_when_on_text_DIVIDE()
+
+
+
+
+
+
+    #______________________________ X ________________________________ / ____________________________
+
+
+        ImageButton:
+            source: "images_icons_and_videos/gange_med_1.png."
+
+            size_hint: (.04, .09)
+            pos_hint: {"center_x": .14, "center_y": .75}
+
+
+
+
+
+
+
+        ImageButton:
+            source: "images_icons_and_videos/divideret_med_1.png"
+
+            size_hint: (.04, .09)
+            pos_hint: {"center_x": .86, "center_y": .75}
+
+
+
+
+
+
+
+
+    #______________________________ARROWS DOWN_________________________________________________________
+
+        ImageButton:
+            id: arrow_DOWN_MULTIPLY
+
+            source: "images_icons_and_videos/pil_ned.png"
+
+
+
+            size_hint: (.12, .11)
+            pos_hint: {"x": .0, "top": .67}
+
+            #disabled: root.expense_DISABLED_OR_NOT
+
+            on_release:
+
+                root.function_of_arrow_DOWN_MULTIPLY()
+
+
+
+
+        ImageButton:
+            id: arrow_DOWN_DIVIDE
+
+            source: "images_icons_and_videos/pil_ned.png"
+
+            size_hint: (.12, .11)
+            pos_hint: {"x": .88, "top": .67}
+
+
+
+            on_release:
+
+                root.function_of_arrow_DOWN_DIVIDE()
+
+
+
+
+    #______________________________DESCRIPTION________________________________________________
+
+
+        TextInput:
+            id: text_input_DESCRIPTION
+
+            text: "Description"
+
+            font_size: 14
+            text_size: self.size
+            halign: "right"
+
+            multiline: False
+
+            size_hint: (.68, .12)
+            pos_hint: {"center_x": .5, "top": .9}
+
+
+
+
+
+
+
+
+    #___________________________________AMOUNT__________________________________________________________
+
+        TextInput:
+            id: text_input_AMOUNT
+
+            text: "0"
+
+            font_size: 14
+            text_size: self.size
+            halign: "right"
+
+            multiline: False
+            input_filter: "float"
+
+            size_hint: (.68, .12)
+            pos_hint: {"center_x": .5, "top": .74}
+
+
+
+            on_text:
+                root.on_text_if_nothing_then_0_in_AMOUNT_text_input()
+                root.function_CALCULATING_TOTAL_AMOUNT_when_on_text_AMOUNT()
+
+
+
+
+
+    #_____________________________________TOTAL___AMOUNT__________________________________________________________
+        Label:
+
+            text: "Total:"
+
+            font_size: 12
+            color: (0, 0, 0, 1)
+
+            text_size: self.size
+            halign: "left"
+
+            size_hint: (.1, .08)
+            pos_hint: {"x": .16, "top": .58}
+
+
+
+
+        Label:
+            id: label_TOTAL_AMOUNT
+
+            text: "0"
+
+            font_size: 14
+            color: (.5, 0, 0, 1)
+            text_size: self.size
+            halign: "right"
+
+            size_hint: (.64, .08)
+            pos_hint: {"x": .2, "top": .58}
+
+            on_text:
+               # root.saving_label_TOTAL_AMOUNT()
+
+
+
+
+
+
+
+
+
+    #________________________ENTER/EDIT EXPENSE___________________________________________________
+
+
+
+        Button:
+            id: button_ENTER_EXPENSE_or_EDIT_EXPENSE
+
+            text: "Enter expense"
+
+            font_size: 12
+
+            size_hint: (.3, .11)
+            pos_hint: {"x": .0, "top": .42}
+
+
+
+            on_release:
+                root.function_ENTER_EXPENSE()
+
+
+
+
+
+    #________________________________CLEAR BOXES_______________________________________________________
+
+        Button:
+            text: "Clear"
+
+            font_size: 12
+
+            size_hint: (.3, .11)
+            pos_hint: {"x": .35, "top": .42}
+
+            on_release:
+                #root.function_CLEARING_INPUT_BOXES()
+
+
+
+
+    #________________________________DELETE (/REMOVE) EXPENSE_______________________________________________________
+
+        Button:
+            text: "Remove expense"
+
+            font_size: 12
+
+            size_hint: (.3, .11)
+            pos_hint: {"x": .7, "top": .42}
+
+            on_release:
+                #root.function_REMOVING_EXPENSE_FROM_BUDGET()
+
+
+
+
+    #_____________________CLOSE___________________________________________________
+
+
+        Button:
+            text: "Close"
+            font_size: 12
+            size_hint: (.3, .1)
+            pos_hint: {"center_x": .5 , "top": .16}
+
+            on_release:
+                root.function_CLOSE_edit_expense_pop_up()
+
+
+
+
+
+<button_NEW_EXPENSE_screen_J>:
+
+
+    Button:
+
+        text: "New expense"
+
+        size_hint: (.4, 1)
+        pos_hint: {"center_x": .5, "center_y": .5}
+
+        on_release:
+            root.function_NEW_final_EXPENSE_POP_UP_form()
+
+
+
+
