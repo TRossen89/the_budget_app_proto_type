@@ -833,6 +833,7 @@ class Screen_F (Screen):
     ### """ ###
     #
     # Lav/brug en funktion til at læse/dumpe i json.filer
+
         file_with_count_of_budget_ids = f"eb_COUNTING_ids_of_BUDGETS.json"
 
         with open(file_with_count_of_budget_ids, "r") as file:
@@ -1097,15 +1098,25 @@ class Screen_F (Screen):
     # -------------------------------------------------SCREEN G--------------------------------------------------------
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-
+########## # # #################### # # # # # # # # # # ##  ## # # # # # #  ##################################
 
     #---SHOWING BUDGET NAME IN SCREEN G:
 
-        text_input_with_budget_name = text_input_GIVE_BUDGET_NAME()
+        #text_input_with_budget_name = text_input_GIVE_BUDGET_NAME()
 
-        budget_name_for_created_budget = text_input_with_budget_name.text
+        budget_name_for_created_budget = App.get_running_app().root.get_screen("screen_D").ids.text_input_GIVE_BUDGET_NAME.text
 
-        App.get_running_app().root.get_screen("screen_G").ids.budget_name_in_top.text = budget_name_for_created_budget
+        #budget_name_for_created_budget = text_input_with_budget_name.text
+
+        #App.get_running_app().root.get_screen("screen_G").ids.budget_name_in_top.text = budget_name_for_created_budget
+
+        App.get_running_app().root.get_screen("screen_G").ids.budget_name_in_top.text = budget_name_to_save
+
+
+
+
+############### # # # # # # # # #  # # # #  # # #  # # ######################## # # # #    ### # # # # # #
+
 
 
     #---SHOWING TOTAL OF ALL EXPENSES IN SCREEN G: ----------------------------
@@ -1437,7 +1448,7 @@ class Screen_F (Screen):
 
     #---SCREEN D---
 
-        App.get_running_app().root.get_screen("screen_D").text_input_with_budget_name.text = "Enter budget name"
+        App.get_running_app().root.get_screen("screen_D").ids.text_input_GIVE_BUDGET_NAME.text = "Enter budget name"
 
 
 

@@ -43,7 +43,7 @@ class ImageButton(ButtonBehavior, Image):
 ### """ ###
 #
 # forsøg at lave én klasse i en fil for sig, som klassen importeres fra, og der laves flere objekter ud af
-class burger_menu_pop_up (Popup):
+class Burger_menu_pop_up (Popup):
     pass
 
 
@@ -70,12 +70,7 @@ class text_input_GIVE_BUDGET_NAME(TextInput):
 #
 # Lav en funktion til at gemme last enterede screen/brug den til at gemme tekst
 
-        filename_with_budget_name = "eb_BUDGET_NAME_for_the_budget_about_TO_BE_CREATED.json"
 
-        with open(filename_with_budget_name, "r") as fileobject:
-            budget_name = json.load(fileobject)
-
-        self.text = budget_name
 
 
 
@@ -90,18 +85,7 @@ class text_input_GIVE_BUDGET_NAME(TextInput):
         TextInput.insert_text(self, substring, from_undo)
 
 
-    def saving_current_budget_name(self):
 
-        budget_name = self.text
-
-        ### """ ###
-        #
-        # Lav en funktion til at gemme last enterede screen/brug den til at gemme tekst
-
-        filename = "eb_BUDGET_NAME_for_the_budget_about_TO_BE_CREATED.json"
-
-        with open(filename, "w") as fileobject:
-            json.dump(budget_name, fileobject)
 
 
     pass
@@ -130,16 +114,17 @@ class Screen_D (Screen):
 
     # -------MAKING LAST ENTERED BUDGET NAME APPEAR IN TEXT INPUT FOR BUDGET NAMING-----------
 
-        #filename_with_budget_name = "eb_BUDGET_NAME_for_the_budget_about_TO_BE_CREATED.json"
+        filename_with_budget_name = "eb_BUDGET_NAME_for_the_budget_about_TO_BE_CREATED.json"
 
-        #with open(filename_with_budget_name, "r") as fileobject:
-         #   budget_name = json.load(fileobject)
+        with open(filename_with_budget_name, "r") as fileobject:
+            budget_name = json.load(fileobject)
 
-        #self.ids.text_input_for_budget_name.text = budget_name
+        self.ids.text_input_GIVE_BUDGET_NAME.text = budget_name
 
-        self.text_input_with_budget_name = text_input_GIVE_BUDGET_NAME()
 
-        self.ids.relative_layout_for_GIVE_BUDGET_NAME.add_widget(self.text_input_with_budget_name)
+        #self.text_input_with_budget_name = text_input_GIVE_BUDGET_NAME()
+
+        #self.ids.relative_layout_for_GIVE_BUDGET_NAME.add_widget(self.text_input_with_budget_name)
 
 
 
@@ -155,7 +140,7 @@ class Screen_D (Screen):
 
     def burger_menu_open(self):
 
-        burger_menu_popup = burger_menu_pop_up()
+        burger_menu_popup = Burger_menu_pop_up()
 
         burger_menu_popup.open()
 
@@ -212,7 +197,18 @@ class Screen_D (Screen):
 
 #------SAVING BUDGET NAME------------
 
+    def saving_current_budget_name(self):
 
+        self.budget_name = self.ids.text_input_GIVE_BUDGET_NAME.text
+
+        ### """ ###
+        #
+        # Lav en funktion til at gemme last enterede screen/brug den til at gemme tekst
+
+        filename = "eb_BUDGET_NAME_for_the_budget_about_TO_BE_CREATED.json"
+
+        with open(filename, "w") as fileobject:
+            json.dump(self.budget_name, fileobject)
 
 
     pass
@@ -225,19 +221,23 @@ class Screen_D (Screen):
 
 
 
+
+
+
+
 #-------PUTTING THE ENTERED BUDGET NAME IN TOP OF SCREENS--------
 
     def putting_budget_name_in_top_of_screens(self):
 
 
-        text_input_with_budget_name = text_input_GIVE_BUDGET_NAME()
+        #text_input_with_budget_name = text_input_GIVE_BUDGET_NAME()
 
-        budget_name = text_input_with_budget_name.text
+        #budget_name = text_input_with_budget_name.text
 
 
 ### """ ###
 #
 # Evt. brug en for loop her
-        App.get_running_app().root.get_screen("screen_E").ids.budget_name_in_top.text = budget_name
-        App.get_running_app().root.get_screen("screen_F").ids.budget_name_in_top.text = budget_name
-        App.get_running_app().root.get_screen("screen_G").ids.budget_name_in_top.text = budget_name
+        App.get_running_app().root.get_screen("screen_E").ids.budget_name_in_top.text = self.budget_name
+        App.get_running_app().root.get_screen("screen_F").ids.budget_name_in_top.text = self.budget_name
+        App.get_running_app().root.get_screen("screen_G").ids.budget_name_in_top.text = self.budget_name
