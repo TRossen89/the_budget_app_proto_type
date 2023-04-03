@@ -3,16 +3,18 @@
 # I en fil for sig
 
 
-<text_input_GIVE_BUDGET_NAME>:
 
 
-    multiline: False
+#<text_input_GIVE_BUDGET_NAME>:
 
-    size_hint: (.6, .08)
-    pos_hint: {"center_x": .5, "top": .68}
 
-    on_text:
-        root.saving_current_budget_name()
+ #   multiline: False
+
+  #  size_hint: (.6, .08)
+   # pos_hint: {"center_x": .5, "top": .68}
+
+    #on_text:
+     #   root.saving_current_budget_name()
 
 
 
@@ -95,6 +97,18 @@
 
             size_hint: (.8, .1)
             pos_hint: {"center_x": .5, "top": .8}
+
+
+        TextInput:
+            id: text_input_GIVE_BUDGET_NAME
+
+            multiline: False
+
+            size_hint: (.6, .08)
+            pos_hint: {"center_x": .5, "top": .68}
+
+            on_text:
+                root.saving_current_budget_name()
 
 
 
