@@ -101,23 +101,16 @@ class Screen_I (Screen):
 
     def on_enter_LIST_OF_BUDGETS_after_CHANGED_BUDGET_NAME(self):
 
-
-
         # CLEARING SCREEN J SO THERE IS ROOM FOR NEW LIST OF BUDGETS WITH THE
         # UPDATED BUDGET NAME FOR CURRENT BUDGET SHOWING
 
         App.get_running_app().root.get_screen("screen_I").ids.grid_frame_for_all_eb_budgets.clear_widgets()
 
 
-
-
         # LOADING LIST WITH BUDGETS (BUDGET IDS) TO BE SHOWN IN SCREEN I
-
-
         ### """ ###
         #
         # Lav/brug en funktion til at læse/dumpe i json.filer
-
 
         file_with_list_of_budget_ids = f"eb_LIST_of_BUDGET_IDS.json"
 

@@ -86,7 +86,6 @@ class Screen_F (Screen):
     size_hint_y_of_expenses_main_grid_frame = NumericProperty(1)
 
 
-
 #---"TOP" SIZE_HINT OF GRID FRAME FOR NEW EXPENSE BUTTON----------------------------------------
 
     top_size_hint_grid_frame_for_NEW_EXPENSE_button = NumericProperty(.9985)
@@ -95,8 +94,6 @@ class Screen_F (Screen):
 #---"TOP" SIZE_HINT OF GRID FRAME FOR THE RESULTS (OF CALCULATIONS OF TOTAL OF ALL EXPENSES, REMAINING AMOUNT AND START AMOUNT)------
 
     top_size_hint_grid_frame_for_THE_RESULTS = NumericProperty(.9975)
-
-
 
 
 
@@ -204,17 +201,13 @@ class Screen_F (Screen):
             if expense_form < 1:
                 pass
 
-                                                                                    ############ SCREEN F ############
+                                                        ############ SCREEN F ############
             else:
-
                 id_of_expense = expense_form
-
 
             #---EXPANDING SIZE OF SCREEN TO SCROLL----------------------------------------
 
                 self.size_hint_y_of_expenses_main_grid_frame += .6
-
-
 
 
             #---LOWERING THE NEW EXPENSE BUTTON (MAKING ROOM FOR THE EXPENSE FORM)---------
@@ -233,9 +226,6 @@ class Screen_F (Screen):
 
 
             #---CREATING JSON STORING FILES FOR ALL THE INDIVIDUAL EXPENSE FORMS (IF THESE FILES DON'T EXISTS ALREADY)
-
-
-
                 if self.does_the_json_file_exists(f"expense_{id_of_expense}_text_input_AMOUNT.json"):
                     pass
 
@@ -248,7 +238,6 @@ class Screen_F (Screen):
         # Lav/brug en funktion til at læse/dumpe i json.filer
 
                     default_value_for_text_input_amount = "0"
-
 
                     file_for_storing_amount_value = f"expense_{id_of_expense}_text_input_AMOUNT.json"
 
@@ -276,8 +265,6 @@ class Screen_F (Screen):
 
 
 
-
-
                 if self.does_the_json_file_exists(f"expense_{id_of_expense}_state_DISABLED_OR_NOT.json"):
                     pass
 
@@ -293,10 +280,6 @@ class Screen_F (Screen):
 
                     with open(file_with_state_of_expense, "w") as filobject:
                         json.dump(default_state_of_expense, filobject)
-
-
-
-
 
 
 
@@ -319,11 +302,8 @@ class Screen_F (Screen):
 
 
 
-
-
                 if self.does_the_json_file_exists(f"expense_{id_of_expense}_text_input_MULTIPLY.json"):
                     pass
-
 
                 else:
 
@@ -363,11 +343,6 @@ class Screen_F (Screen):
 
                     with open(file_for_storing_text_on_enter_or_edit_button, "w") as filobject:
                         json.dump(default_text_on_enter_or_edit_button, filobject)
-
-
-
-
-
 
 
 
@@ -427,9 +402,6 @@ class Screen_F (Screen):
 
 
 
-
-
-
 # ---------------------------------------------------------------------------
 # ---------------------------------------------------------------------------
 
@@ -439,8 +411,6 @@ class Screen_F (Screen):
 
 # ---------------------------------------------------------------------------
 # ---------------------------------------------------------------------------
-
-
 
 
 #-------SAVING SCREEN_F AS LAST ENTERED SCREEN SO IF APP IS CLOSED WHILE SCREEN_F IS SHOWED,
@@ -531,12 +501,6 @@ class Screen_F (Screen):
 
 
 
-
-
-
-
-
-
 #------------------------------------------------------------------------------------
 #------------------------------------------------------------------------------------
 
@@ -548,11 +512,7 @@ class Screen_F (Screen):
 #------------------------------------------------------------------------------------
 
 
-
-
-
     def function_of_NEW_EXPENSE_button(self):
-
 
 
     #---THE COUNTER: COUNTING ALL EXPENSE FORMS (THE COUNT STARTS AT 3 BECAUSE SCREEN F SHOWS 3 EXPENSE FORMS AS DEFAULT)----
@@ -603,11 +563,8 @@ class Screen_F (Screen):
 
     #---CREATING JSON STORING FILES FOR ALL THE INDIVIDUAL EXPENSE FORMS (IF THESE FILES DON'T EXISTS ALREADY)
 
-
-
         if self.does_the_json_file_exists(f"expense_{id_of_expense}_text_input_AMOUNT.json"):
             pass
-
 
         else:
 
@@ -616,15 +573,10 @@ class Screen_F (Screen):
             # Lav/brug en funktion til at læse/dumpe i json.filer
             default_value_for_text_input_amount = "0"
 
-
             file_for_storing_amount_value = f"expense_{id_of_expense}_text_input_AMOUNT.json"
 
             with open(file_for_storing_amount_value, "w") as file:
                 json.dump(default_value_for_text_input_amount, file)
-
-
-
-
 
 
         if self.does_the_json_file_exists(f"expense_{id_of_expense}_text_input_DESCRIPTION.json"):
@@ -636,7 +588,6 @@ class Screen_F (Screen):
             #
             # Lav/brug en funktion til at læse/dumpe i json.filer
             default_text_in_description_text_input = "Description"
-
 
             file_for_storing_description = f"expense_{id_of_expense}_text_input_DESCRIPTION.json"
 
@@ -702,18 +653,10 @@ class Screen_F (Screen):
             # Lav/brug en funktion til at læse/dumpe i json.filer
             default_value_in_multiply_text_input = "1"
 
-
-            file_for_storing_value_of_multiply_text_input= f"expense_{id_of_expense}_text_input_MULTIPLY.json"
-
+            file_for_storing_value_of_multiply_text_input = f"expense_{id_of_expense}_text_input_MULTIPLY.json"
 
             with open(file_for_storing_value_of_multiply_text_input, "w") as filobject:
                 json.dump(default_value_in_multiply_text_input, filobject)
-
-
-
-
-
-
 
 
         if self.does_the_json_file_exists(f"expense_{id_of_expense}_button_text_ENTER_EXPENSE_or_EDIT_EXPENSE.json"):
@@ -733,12 +676,6 @@ class Screen_F (Screen):
 
             with open(file_for_storing_text_on_enter_or_edit_button, "w") as filobject:
                 json.dump(default_text_on_enter_or_edit_button, filobject)
-
-
-
-
-
-
 
 
 
@@ -763,11 +700,9 @@ class Screen_F (Screen):
 
 
 
-
     #---BEFORE ADDING NEW EXPENSE FORM: EXPANDING SIZE OF SCREEN TO SCROLL----------------------------------------
 
         self.size_hint_y_of_expenses_main_grid_frame += .6
-
 
 
 
@@ -819,13 +754,9 @@ class Screen_F (Screen):
     def function_CREATE_BUDGET_button(self):
 
 
-
-
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     #-------------------------------SAVING BUDGET (AND CREATING FILES FOR FUTURE SAVING)-------------------------------
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-
 
 
     #---ADDING BUDGET TO THE COUNT IF BUDGETS AND THEREBY CREATING BUDGETS ID FOR CREATED BUDGET: -----------
@@ -1067,15 +998,8 @@ class Screen_F (Screen):
 
 
 
-
-
-
-
-
-
-
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-    # -------------------------------------------------SCREEN I--------------------------------------------------------
+    # -------------------------------------------------SCREEN I (screen with list of budgets)--------------------------------------------------------
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 
@@ -1095,7 +1019,7 @@ class Screen_F (Screen):
 
 
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-    # -------------------------------------------------SCREEN G--------------------------------------------------------
+    # -----------------------------------SCREEN G (screen showing a just created budget)--------------------------------------------------------
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 ########## # # #################### # # # # # # # # # # ##  ## # # # # # #  ##################################
@@ -1134,16 +1058,18 @@ class Screen_F (Screen):
         App.get_running_app().root.get_screen(
             "screen_G").ids.label_REMAINING_AMOUNT.text = remaining_amount
 
+###################################################################################################################
+# EDIT EDIT EDIT EDIT ###############################################################################################
 
+    #---SHOWING remaining amount as disposable amount in SCREEN G: ------------------------------------
 
-
-    #---SHOWING START DISPOSABLE AMOUNT IN SCREEN G: ------------------------------------
-
-        start_disposable_amount = self.ids.label_START_DISPOSABLE_AMOUNT.text
+        start_disposable_amount = self.ids.label_REMAINING_AMOUNT.text
 
         App.get_running_app().root.get_screen(
             "screen_G").text_input_with_start_disposable_amount.text = start_disposable_amount
+####################################################################################################################
 
+####################################################################################################################
 
 
     #---SHOWING TOTAL OF PAID EXPENSES IN SCREEN G: -------------------------------------

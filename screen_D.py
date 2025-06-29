@@ -68,7 +68,7 @@ class text_input_GIVE_BUDGET_NAME(TextInput):
 
 ### """ ###
 #
-# Lav en funktion til at gemme last enterede screen/brug den til at gemme tekst
+# Lav en funktion til at gemme last entered screen/brug den til at gemme tekst
 
 
 
@@ -177,8 +177,6 @@ class Screen_D (Screen):
 
 # -------SAVING SCREEN_A AS LAST ENTERED SCREEN SO IF APP IS CLOSED WHILE SCREEN_A IS SHOWED,
 # SCREEN_A WILL SHOW NEXT TIME APP IS OPENED--------
-
-
 
 
 ### """ ###

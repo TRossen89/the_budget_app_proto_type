@@ -306,11 +306,6 @@ class new_expense_POP_UP_screen_J (Popup):
 
 
 
-
-
-
-
-
         # ---------------------------------------------
         # ---SHOWING AND SAVING CHANGES----------------
         # ---------------------------------------------
@@ -343,14 +338,20 @@ class new_expense_POP_UP_screen_J (Popup):
             the_total_of_all_expenses_before_expenses_is_edited - the_total_of_expense_before_it_is_edited
 
 
-
-
         # CALCULATING THE NEW TOTAL OF ALL EXPENSES - THAT IS: WITH THE NEW TOTAL OF THIS EXPENSE (self.expense_id)
 
         expense_amount_to_add_to_total_of_expenses = float(total_amount_to_save)
 
         calculation_of_total_of_expenses = the_total_of_all_expenses_without_the_expense_about_to_be_edited + expense_amount_to_add_to_total_of_expenses
 
+
+        # CALCULATING NEW SALDO
+
+      #  oldSaldo = float(App.get_running_app().root.get_screen("screen_J").ids.label_START_DISPOSABLE_AMOUNT.text)
+
+       # newSaldo = oldSaldo-expense_amount_to_add_to_total_of_expenses
+
+       # App.get_running_app().root.get_screen("screen_J").ids.label_START_DISPOSABLE_AMOUNT.text = str(newSaldo)
 
 
         # SHOWING THE NEW TOTAL OF ALL EXPENSES
@@ -518,6 +519,7 @@ class new_expense_POP_UP_screen_J (Popup):
                     # EXPENSE ID ARE PASSED AS key_with_expense_information TO THE final_expense CLASS, SO THAT
                     # THE EDIT BUTTON CAN OPEN A POP WITH CORRECT EXPENSE INFORMATION AND SAVE THE CHANGES IN CORRECT
                     # FILES
+
 
 
                     App.get_running_app().root.get_screen("screen_J").ids.grid_frame_for_all_expenses.add_widget \

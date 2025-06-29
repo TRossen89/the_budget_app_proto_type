@@ -45,15 +45,7 @@ class burger_menu_pop_up (Popup):
     pass
 
 
-
-
-
 class Screen_C (Screen):
-
-
-
-
-
 
 #---------------------------------------------------------------------
 #-----------------------POP UP WINDOWS--------------------------------
@@ -71,10 +63,6 @@ class Screen_C (Screen):
         burger_menu_popup.open()
 
 
-
-
-
-
 #---------------------------------------------------------------------------
 #-------------------SAVING TEXT AND DATA IN JSON----------------------------
 #---------------------------------------------------------------------------
@@ -82,7 +70,6 @@ class Screen_C (Screen):
 
 #-------SAVING SCREEN_C AS LAST ENTERED SCREEN SO IF APP IS CLOSED WHILE SCREEN_C IS SHOWED,
 # SCREEN_C WILL SHOW NEXT TIME APP IS OPENED--------
-
 
 
 ### """ ###
@@ -100,10 +87,8 @@ class Screen_C (Screen):
 
 
 
-
 # -------SAVING SCREEN_A AS LAST ENTERED SCREEN SO IF APP IS CLOSED WHILE SCREEN_A IS SHOWED,
 # SCREEN_A WILL SHOW NEXT TIME APP IS OPENED--------
-
 
 
 ### """ ###

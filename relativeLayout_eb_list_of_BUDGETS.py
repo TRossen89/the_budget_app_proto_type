@@ -81,15 +81,6 @@ class eb_budgets (RelativeLayout):
             json.dump(budget_id_for_current_budget_showing, file)
 
 
-
-
-
-
-
-
-
-
-
         file_with_budget_name = f"eb_a_created_budget_{budget_id_for_current_budget_showing}_BUDGET_NAME.json"
 
         with open(file_with_budget_name, "r") as file:
@@ -152,12 +143,12 @@ class eb_budgets (RelativeLayout):
 
 
 
-        file_with_current_disposable_amount = f"eb_a_created_budget_{budget_id_for_current_budget_showing}_CURRENT_DISPOSABLE_AMOUNT.json"
+        #file_with_current_disposable_amount = f"eb_a_created_budget_{budget_id_for_current_budget_showing}_CURRENT_DISPOSABLE_AMOUNT.json"
 
-        with open(file_with_current_disposable_amount, "r") as file:
-            current_disposable_amount = json.load(file)
+        #with open(file_with_current_disposable_amount, "r") as file:
+         #   current_disposable_amount = json.load(file)
 
-            App.get_running_app().root.get_screen("screen_J").ids.label_CURRENT_DISPOSABLE_AMOUNT.text = current_disposable_amount
+          #  App.get_running_app().root.get_screen("screen_J").ids.label_CURRENT_DISPOSABLE_AMOUNT.text = current_disposable_amount
 
 
 

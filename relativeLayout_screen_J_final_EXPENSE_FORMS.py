@@ -34,6 +34,9 @@ import os
 
 class edit_expense_POP_UP_screen_J(Popup):
 
+
+
+
     def __init__(self, expense_id, **kwargs):
         super(edit_expense_POP_UP_screen_J, self).__init__(**kwargs)
 
@@ -61,6 +64,7 @@ class edit_expense_POP_UP_screen_J(Popup):
 
             list_with_expense_information = dictionary_with_expenses[self.expense_id]
 
+
             # STORING THE EXPENSE INFORMATION IN VARIABLES
 
             multiply_value = list_with_expense_information[0]
@@ -71,7 +75,7 @@ class edit_expense_POP_UP_screen_J(Popup):
 
             divide_value = list_with_expense_information[3]
 
-            total_amount = list_with_expense_information[4]
+            self.total_amount = list_with_expense_information[4]
 
         # SHOWING THE EXPENSE INFORMATION IN THE POP UP
 
@@ -80,7 +84,9 @@ class edit_expense_POP_UP_screen_J(Popup):
         self.ids.text_input_AMOUNT.text = amount
         self.ids.text_input_DIVIDE.text = divide_value
 
-        self.ids.label_TOTAL_AMOUNT.text = total_amount
+        self.ids.label_TOTAL_AMOUNT.text = self.total_amount
+
+
 
 
 
@@ -270,9 +276,13 @@ class edit_expense_POP_UP_screen_J(Popup):
     def function_ENTER_EXPENSE(self):
 
 
+
         # ----------------------------
         # ---PREPERATION COMMANDS:----
         # ----------------------------
+
+
+
 
         # ---EXPENSE INFORMATION TO SAVE:
 
@@ -344,6 +354,8 @@ class edit_expense_POP_UP_screen_J(Popup):
 
             App.get_running_app().root.get_screen("screen_J").ids.label_TOTAL_OF_ALL_EXPENSES.text = str(
                 calculation_of_total_of_expenses)
+
+
 
             # ---SAVING CHANGES IN JSON FILES:
 
@@ -762,7 +774,7 @@ class expenses_screen_J (RelativeLayout):
     division_in_screen = StringProperty("")
 
     def __init__(self, expense_id, multiply, description, amount, divide, total_of_expense, **kwargs):
-        super(expenses_screen_J, self).__init__(**kwargs)
+        super().__init__(**kwargs)
 
         self.expense_id = expense_id
 
@@ -845,7 +857,9 @@ class expenses_screen_J (RelativeLayout):
 
         text_on_paid_or_unpaid_button = self.ids.button_text_PAID_OR_UNPAID.text
 
+        totalOfExpectedExpenses = App.get_running_app().root.get_screen("screen_J").ids.label_TOTAL_OF_ALL_EXPENSES.text
 
+        oldSaldo = float(App.get_running_app().root.get_screen("screen_J").ids.label_START_DISPOSABLE_AMOUNT.text)
 
 
         if text_on_paid_or_unpaid_button == "unP":
@@ -863,22 +877,15 @@ class expenses_screen_J (RelativeLayout):
             self.ids.button_text_PAID_OR_UNPAID.text = "P"
 
 
-
-
             # TOTAL OF PAID EXPENSES BEFORE PAID/UNPAID BUTTON IS PRESSED
 
             total_of_paid_expenses_before_paid_or_unpaid_button_is_pressed = \
                 float(App.get_running_app().root.get_screen("screen_J").ids.label_TOTAL_OF_PAID_EXPENSES.text)
 
 
-
-
-
             # TOTAL OF THIS EXPENSE (self.expense_id) BEFORE OR AS THE BUTTON IS PRESSED
 
             total_of_this_expense_as_paid_or_unpaid_button_is_pressed = float(self.total_of_expense)
-
-
 
 
             # CALCULATING TOTAL OF PAID EXPENSES AFTER BUTTON IS PRESSED
@@ -887,24 +894,26 @@ class expenses_screen_J (RelativeLayout):
                 total_of_paid_expenses_before_paid_or_unpaid_button_is_pressed + \
                 total_of_this_expense_as_paid_or_unpaid_button_is_pressed
 
+            # CALCULATING AND SHOWING TOTAL OF EXPECTED EXPENSES
+
+            newTotalOfExpectedExpenses = str(float(totalOfExpectedExpenses) -
+                                             total_of_this_expense_as_paid_or_unpaid_button_is_pressed)
+
+            App.get_running_app().root.get_screen("screen_J").ids.label_TOTAL_OF_ALL_EXPENSES.text = \
+                newTotalOfExpectedExpenses
 
 
+            # CALCULATING AND SHOWING NEW SALDO
 
+            newSaldo = str(oldSaldo - total_of_this_expense_as_paid_or_unpaid_button_is_pressed)
 
-            # START DISPOSABLE AMOUNT
-
-            start_disposable_amount = \
-                float(App.get_running_app().root.get_screen("screen_J").ids.label_START_DISPOSABLE_AMOUNT.text)
-
-
+            App.get_running_app().root.get_screen("screen_J").ids.label_START_DISPOSABLE_AMOUNT.text = newSaldo
 
 
             # SHOWING TOTAL PAID EXPENSES IN SCREEN J
 
             App.get_running_app().root.get_screen("screen_J").ids.label_TOTAL_OF_PAID_EXPENSES.text = \
                 str(total_of_paid_expenses_after_paid_or_unpaid_button_is_pressed)
-
-
 
 
             # SAVING TEXT ON BUTTON
@@ -931,17 +940,29 @@ class expenses_screen_J (RelativeLayout):
 
             total_of_this_expense_as_paid_or_unpaid_button_is_pressed = float(self.total_of_expense)
 
-
-
             total_of_paid_expenses_after_paid_or_unpaid_button_is_pressed = \
                 total_of_paid_expenses_before_paid_or_unpaid_button_is_pressed - \
                 total_of_this_expense_as_paid_or_unpaid_button_is_pressed
 
 
-
-
             App.get_running_app().root.get_screen("screen_J").ids.label_TOTAL_OF_PAID_EXPENSES.text = \
                 str(total_of_paid_expenses_after_paid_or_unpaid_button_is_pressed)
+
+
+
+            # CALCULATING AND SHOWING TOTAL OF EXPECTED EXPENSES
+
+            newTotalOfExpectedExpenses = str(float(totalOfExpectedExpenses) +
+                                             total_of_this_expense_as_paid_or_unpaid_button_is_pressed)
+
+            App.get_running_app().root.get_screen("screen_J").ids.label_TOTAL_OF_ALL_EXPENSES.text = \
+                newTotalOfExpectedExpenses
+
+            # CALCULATING AND SHOWING NEW SALDO
+
+            newSaldo = str(oldSaldo + total_of_this_expense_as_paid_or_unpaid_button_is_pressed)
+
+            App.get_running_app().root.get_screen("screen_J").ids.label_START_DISPOSABLE_AMOUNT.text = newSaldo
 
 
 

@@ -62,14 +62,10 @@ class burger_menu_pop_up (Popup):
 
 
 
-
-
 class Screen_E(Screen):
-
 
     def __init__(self, **kwargs):
         super(Screen_E, self).__init__(**kwargs)
-
 
     #-------MAKING LAST ENTERED BUDGET NAME APPEAR IN TOP OF SCREEN-----------
 
@@ -87,15 +83,11 @@ class Screen_E(Screen):
 
 
 
-
     #---ADDING TEXT INPUT FOR DISPOSABLE AMOUNT ON SCREEN
 
         self.text_input_with_disposable_amount = text_input_DISPOSABLE_AMOUNT()
 
         self.ids.relative_layout_for_DISPOSABLE_AMOUNT.add_widget(self.text_input_with_disposable_amount)
-
-
-
 
 
 
@@ -116,12 +108,6 @@ class Screen_E(Screen):
 
 
 
-
-
-
-
-
-
 #------OPENING CALCULATOR FOR CALCULATING DISPOSABLE AMOUNT--------
 
     def open_calculator_for_disposable_amount(self):
@@ -129,8 +115,6 @@ class Screen_E(Screen):
         self.calculator = popup_calculator_for_disposable_amount()
 
         self.calculator.open()
-
-
 
 
 
@@ -147,15 +131,8 @@ class Screen_E(Screen):
 
 
 
-
-
-
-
 #-------SAVING SCREEN_E AS LAST ENTERED SCREEN SO IF APP IS CLOSED WHILE SCREEN_E IS SHOWED,
 # SCREEN_E WILL SHOW NEXT TIME APP IS OPENED--------
-
-
-
 
     def screen_E_in_last_entered_screen_json_file (self):
 
@@ -195,16 +172,11 @@ class Screen_E(Screen):
 
 
 
-
-
-
-
-
 # ------------------------------------------------------------------------------------
 # ------------------------------------------------------------------------------------
 
 # ------------------------------------------------------------------------------------
-# ------------------FUNCTIONALITY OF WIDGETS IN SCREEN F------------------------------
+# ------------------FUNCTIONALITY OF WIDGETS IN SCREEN E------------------------------
 # ------------------------------------------------------------------------------------
 
 # ------------------------------------------------------------------------------------

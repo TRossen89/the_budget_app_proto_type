@@ -39,7 +39,6 @@ class ImageButton(ButtonBehavior, Image):
     pass
 
 
-
 ### """ ###
 #
 # forsøg at lave én klasse i en fil for sig, som klassen importeres fra, og der laves flere objekter ud af
@@ -49,10 +48,7 @@ class burger_menu_pop_up (Popup):
 
 
 
-
 class Screen_B(Screen):
-
-
 
 #------OPENING BURGER MENU IN CORNER OF SCREEN-------
 
@@ -62,14 +58,8 @@ class Screen_B(Screen):
 
         burger_menu_popup.open()
 
-
-
-
 #-------SAVING SCREEN_B AS LAST ENTERED SCREEN SO IF APP IS CLOSED WHILE SCREEN_B IS SHOWED,
 # SCREEN_B WILL SHOW NEXT TIME APP IS OPENED--------
-
-
-
 
 ### """ ###
 #
@@ -86,22 +76,20 @@ class Screen_B(Screen):
 
 
 
-
 # -------SAVING SCREEN_A AS LAST ENTERED SCREEN SO IF APP IS CLOSED WHILE SCREEN_A IS SHOWED,
 # SCREEN_A WILL SHOW NEXT TIME APP IS OPENED--------
 
 
 ## """ ###
 #
-# Lav en funktion til at gemme last enterede screen/brug den til at gemme tekst
+# Lav en funktion til at gemme last entered screen/brug den til at gemme tekst
     def screen_A_in_last_entered_screen_json_file(self):
+
         screen_name_to_dump = "screen_A"
 
         filename = "the_LAST_ENTERED_screen.json"
 
         with open(filename, "w") as fileobject:
             json.dump(screen_name_to_dump, fileobject)
-
-
 
     pass

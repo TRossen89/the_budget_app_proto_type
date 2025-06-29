@@ -46,16 +46,7 @@ class Screen_P(Screen):
     pass
 
 
-
-
-
-
-
-
-
 Builder.load_file('kv_files/loaded_kv_file.kv')
-
-
 
 
 
@@ -83,9 +74,6 @@ class MyBudget_protoType (App):
         myScreenManager.add_widget(Screen_I(name="screen_I"))
         myScreenManager.add_widget(Screen_J(name="screen_J"))
 
-
-
-
         myScreenManager.add_widget(Screen_K(name="screen_K"))
         myScreenManager.add_widget(Screen_L(name="screen_L"))
         myScreenManager.add_widget(Screen_M(name="screen_M"))
@@ -93,11 +81,9 @@ class MyBudget_protoType (App):
         myScreenManager.add_widget(Screen_O(name="screen_O"))
         myScreenManager.add_widget(Screen_P(name="screen_P"))
 
-
     #------MAKING THE TRANSITION BETWEEN SCREENS INSTANTANEUOSLY (THAT IS WITH NO SLIDE OR OTHER TRANSITION EFFECT)-----
 
         myScreenManager.transition = NoTransition()
-
 
 
     #---------MAKING LAST ENTERED SCREEN THE SCREEN SHOWING WHEN OPENING APP NEXT TIME--------
@@ -111,29 +97,16 @@ class MyBudget_protoType (App):
         myScreenManager.current = the_last_entered_screen
 
 
-
-
         #  Hvis jeg gerne vil have SlideTransition er der et problem med de dynamisk tilføjede layouts.
         #  Jeg kan ikke bare skrive root.manager.transition.direction = "left/right".
         #  De dynamisk tilføjede layouts har ikke et attribute der hedder "manager"
 
-
         #sm.transition = SlideTransition()
-
-
-
-
 
 
         Window.clearcolor = (1, 1, 1, 1)
 
         return myScreenManager
-
-
-
-
-
-
 
 
 if __name__ == '__main__':

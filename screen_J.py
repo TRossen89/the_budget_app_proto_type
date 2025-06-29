@@ -169,7 +169,6 @@ class Screen_J (Screen):
 
 
 
-
             file_with_start_disposable_amount = f"eb_a_created_budget_{current_budget}_DISPOSABLE_AMOUNT.json"
 
             with open(file_with_start_disposable_amount, "r") as file:
@@ -212,15 +211,12 @@ class Screen_J (Screen):
 
 
 
+           # file_with_current_disposable_amount = f"eb_a_created_budget_{current_budget}_CURRENT_DISPOSABLE_AMOUNT.json"
 
+            #with open(file_with_current_disposable_amount, "r") as file:
+             #   current_disposable_amount = json.load(file)
 
-
-            file_with_current_disposable_amount = f"eb_a_created_budget_{current_budget}_CURRENT_DISPOSABLE_AMOUNT.json"
-
-            with open(file_with_current_disposable_amount, "r") as file:
-                current_disposable_amount = json.load(file)
-
-                self.ids.label_CURRENT_DISPOSABLE_AMOUNT.text = current_disposable_amount
+              #  self.ids.label_CURRENT_DISPOSABLE_AMOUNT.text = current_disposable_amount
 
 
 
@@ -449,9 +445,9 @@ class Screen_J (Screen):
                 self.ids.label_REMAINING_AMOUNT.text = f"-{total_of_expected_expenses}"
 
 
-                total_of_paid_expenses = self.ids.label_TOTAL_OF_PAID_EXPENSES.text
+                #total_of_paid_expenses = self.ids.label_TOTAL_OF_PAID_EXPENSES.text
 
-                self.ids.label_CURRENT_DISPOSABLE_AMOUNT.text = f"-{total_of_paid_expenses}"
+                #self.ids.label_CURRENT_DISPOSABLE_AMOUNT.text = f"-{total_of_paid_expenses}"
 
 
 
@@ -462,11 +458,11 @@ class Screen_J (Screen):
 
                 total_of_expected_expenses = float(self.ids.label_TOTAL_OF_ALL_EXPENSES.text)
 
-                total_of_paid_expenses = float(self.ids.label_TOTAL_OF_PAID_EXPENSES.text)
+                #total_of_paid_expenses = float(self.ids.label_TOTAL_OF_PAID_EXPENSES.text)
 
                 self.ids.label_REMAINING_AMOUNT.text = str(start_disposable_amount - total_of_expected_expenses)
 
-                self.ids.label_CURRENT_DISPOSABLE_AMOUNT.text = str(start_disposable_amount - total_of_paid_expenses)
+                #self.ids.label_CURRENT_DISPOSABLE_AMOUNT.text = str(start_disposable_amount - total_of_paid_expenses)
 
 
 
@@ -510,15 +506,16 @@ class Screen_J (Screen):
     def on_text_calculating_NEW_REMAINING_AMOUNT(self):
 
 
-        start_disposable_amount = float(self.ids.label_START_DISPOSABLE_AMOUNT.text)
+        saldo = float(self.ids.label_START_DISPOSABLE_AMOUNT.text)
 
         new_total_of_all_expenses = float(self.ids.label_TOTAL_OF_ALL_EXPENSES.text)
 
 
-        new_remaining_amount = start_disposable_amount - new_total_of_all_expenses
+        new_remaining_amount = saldo - new_total_of_all_expenses
 
 
         self.ids.label_REMAINING_AMOUNT.text = str(new_remaining_amount)
+        #self.ids.label_START_DISPOSABLE_AMOUNT.text = str(new_remaining_amount)
 
 
 
@@ -607,6 +604,10 @@ class Screen_J (Screen):
 
 
         self.ids.label_CURRENT_DISPOSABLE_AMOUNT.text = str(new_current_disposable_amount)
+
+
+
+        #self.ids.label_START_DISPOSABLE_AMOUNT.text = str(new_current_disposable_amount)
 
 
 

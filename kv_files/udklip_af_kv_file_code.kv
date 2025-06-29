@@ -1,4 +1,66 @@
 
+#--------------------CURRENT DISPOSABLE AMOUNT /SALDO-----------LABEL----------AMOUNT-----------------------------------
+
+
+
+
+                        Label:
+
+                            text: "Saldo without expenses:"
+
+                            color: (0, 0, 0, 1)
+                            font_size: 14
+
+                            text_size: self.size
+                            halign: "left"
+
+                            size_hint: (.6, .1)
+                            pos_hint: {"x": .05, "top": .75}
+
+
+
+
+                        Label:
+
+                            id: label_CURRENT_DISPOSABLE_AMOUNT
+
+                            text: "0"
+
+                            color: (.0, .6, .4, 1)
+                            font_size: 14
+
+                            text_size: self.size
+                            halign: "right"
+
+                            size_hint: (.4, .1)
+                            pos_hint: {"x": .53, "top": .75}
+
+
+                            on_text:
+                                root.saving_CURRENT_DISPOSABLE_AMOUNT()
+
+
+                        Label:
+
+                            text: "kr."
+
+                            color: (.0, .6, .4, 1)
+                            font_size: 14
+
+                            text_size: self.size
+                            halign: "right"
+
+                            size_hint: (.07, .1)
+                            pos_hint: {"x": .93, "top": .75}
+
+
+
+#-----------------------------------------------------------------------------------------------------------------
+
+
+
+
+
 <new_expense>:
 
 

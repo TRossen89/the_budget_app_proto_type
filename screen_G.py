@@ -66,11 +66,7 @@ class ImageButton(ButtonBehavior, Image):
 class change_BUDGET_NAME_screen_G(Popup):
 
 
-
-
     def function_SAVING_BUDGET_NAME(self):
-
-
 
     #---BUDGET NAME ENTERED IN TEXT INPUT:
 
@@ -130,8 +126,6 @@ class burger_menu_pop_up (Popup):
 class Screen_G(Screen):
 
 
-
-
 #---SIZE_HINT_Y OF EXPENSES MAIN GRID FRAME (IT INCREASES EVERY TIME THE USER ADD AN EXPENSE FORM TO THE SCREEN)--------
 
     size_hint_y_of_expenses_main_grid_frame = NumericProperty(4)
@@ -163,12 +157,6 @@ class Screen_G(Screen):
 
         self.text_input_with_new_final_expense_button = NEW_final_EXPENSE_button()
         self.ids.grid_frame_for_new_final_expense_button.add_widget(self.text_input_with_new_final_expense_button)
-
-
-
-
-
-
 
 
 
